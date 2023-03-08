@@ -41,9 +41,32 @@ class PLAYER:
     def show_hand(self):
         print(f"{self.name}'s hand: {self.hand}")
         
+        
+    def get_hand_value(self):
+        # Calculate the value of the player's hand
+        total = 0
+        num_aces = 0
+        
+        for card in self.hand:
+            rank = card[0]
+            
+            if rank.isdigit():
+                total += int(rank)
+            elif rank in ["J", "Q", "K"]:
+                total += 10
+            else:
+                num_aces += 1
+                total += 11
+        
+        # Adjust the value for aces
+        while num_aces > 0 and total > 21:
+            total -= 10
+            num_aces -= 1
+        
+        return total
+        
     def is_bust(self):
-        hand_sum = sum(card_value(card) for card in self.hand)
-        return hand_sum > 21
+        return self.get_hand_value() > 21
     
     def bust(self):
         self.lose(self.bet)
