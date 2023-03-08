@@ -1,4 +1,4 @@
-class Dealer:
+class DEALER:
     def __init__(self, deck):
         self.deck = deck
         self.hand = []
@@ -25,7 +25,7 @@ class Dealer:
             
             if rank.isdigit():
                 total += int(rank)
-            elif rank in ["Jack", "Queen", "King"]:
+            elif rank in ["J", "Q", "K"]:
                 total += 10
             else:
                 num_aces += 1

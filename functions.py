@@ -18,22 +18,3 @@ def generate_deck(seed):
 
 
 
-def card_value(card:tuple):
-    value = 0
-    
-    rank = card[0]
-    
-    
-    try:
-        valor = int(card[0])
-    except ValueError:
-        if card[0] in ['Q', 'J', 'K']:
-            valor = 10
-        else:
-            valor = 11
-    return valor
-
-D = generate_deck(3)
-
-
-

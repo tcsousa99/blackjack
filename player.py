@@ -26,19 +26,23 @@ class PLAYER:
     def remove_from_stack(self, amount):
         self.stack -= amount
         
-    def win(amount):
+    def win(self):
         print("You've won!")
-        stack += amount
+        self.add_to_stack(self.bet)
     
-    def lose(amount):
+    def lose(self):
+        # If the player loses to the dealer then the amount they 
         print("You've lost!")
-        stack -= amount
+        self.remove_from_stack(self.bet)
         
     def push(self):
+        # When both dealer and player tie
         self.add_to_stack(self.bet)
         self.bet = 0
         
+        
     def show_hand(self):
+        # Show the hand that the player has
         print(f"{self.name}'s hand: {self.hand}")
         
         
