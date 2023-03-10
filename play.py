@@ -18,7 +18,6 @@ def play():
     deck =  generate_deck(seed)
     player1 = PLAYER(name, buy_in)
     dealer = DEALER(deck)
-    c = True
     
     #Game
     while True:

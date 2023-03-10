@@ -1,5 +1,3 @@
-from player import PLAYER
-
 class DEALER:
     def __init__(self, deck):
         self.deck = deck
