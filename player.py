@@ -6,11 +6,11 @@ class PLAYER:
     numb_of_players = 0
     name_of_players = []
     
-    def __init__(self, name, buy_in,stack, bet, hand):
+    def __init__(self, name, buy_in):
         self.name = name
         self.buy_in = buy_in
-        self.stack = stack
-        self.bet = bet
+        self.stack = buy_in
+        self.bet = 0
         self.hand = []
         
         PLAYER.numb_of_players += 1
@@ -35,11 +35,14 @@ class PLAYER:
         print("You've lost!")
         self.remove_from_stack(self.bet)
         
+        
     def push(self):
         # When both dealer and player tie
         self.add_to_stack(self.bet)
         self.bet = 0
         
+    def add_to_hand(self, card):
+        self.hand.append(card)    
         
     def show_hand(self):
         # Show the hand that the player has
@@ -73,11 +76,17 @@ class PLAYER:
         return self.get_hand_value() > 21
     
     def bust(self):
-        self.lose(self.bet)
+        self.lose()
         self.bet = 0
         self.hand = []
         print(f"{self.name} is bust!")
-
+        
+    def place_bet(self, amount):
+        self.bet = amount
+                
+    def reset(self):
+        self.hand = []
+        self.bet = 0
 
 
 
