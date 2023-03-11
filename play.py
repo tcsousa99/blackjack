@@ -4,6 +4,7 @@
 
 from player import PLAYER
 from dealer import DEALER
+from logger import LOGGER
 from functions import *
 
 
@@ -18,6 +19,7 @@ def play():
     deck =  generate_deck(seed)
     player1 = PLAYER(name, buy_in)
     dealer = DEALER(deck)
+    logger = LOGGER()
     
     #Game
     while True:
@@ -47,6 +49,7 @@ def play():
         #hitting or standing.
             while True:
                 action = input(f"{player1.name}, do you want to stand or hit? ")
+                action = logger.InputAction(player1)
                 if action.lower() == "hit":
                     player1.add_to_hand(dealer.draw_card())
                     player1.show_hand()
